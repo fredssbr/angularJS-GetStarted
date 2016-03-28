@@ -1,0 +1,35 @@
+<div>
+    <h2>{{user.name}}</h2>
+    {{error}}
+    <!-- Use an ng-src tag to avoid 404 error. Once angular is up and running, it will be downloaded. 
+             With the src, the browser starts to download the image before angular comes in and replaces the binding expression -->
+    <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+    <br />
+    <label for="orderSelect">Order by:</label>
+    <select ng-model="reposOrderBy" class="form-control" name="orderSelect">
+        <option value="+name">Name</option>
+        <option value="-stargazers_count">Stars</option>
+        <option value="+language">Language</option>
+    </select>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <th>Name</th>
+        <th>Stars</th>
+        <th>Language</th>
+    </thead>
+    <tbody>
+        <!-- If you use a parameter in '' for the filter, angular will look for it in the scope of the object instatiated in the loop, i.e. 
+             a property of repo, like name. When you use a variable (name without the ''), angular will look for it in the model scope
+                 Ascending order: +property
+                 Descending order: -property
+        -->
+        <tr ng-repeat="repo in repos | orderBy:reposOrderBy">
+            <td><a href="#/repo/{{user.login}}/{{repo.name}}">{{repo.name}}</a></td>
+            <td>{{repo.stargazers_count | number}}</td>
+            <td>{{repo.language}}</td>
+        </tr>
+    </tbody>
+</table>
+<a href="#/main">Back to search</a>

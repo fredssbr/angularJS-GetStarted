@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="helloApp">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="../angular.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body ng-controller="MainController">
+      <h1>{{message}}</h1>
+      <div ng-show="error">{{error}}</div>
+      <div ng-hide="error">
+          <div>User: {{user.name}}</div>
+          <div>Location: {{user.location}}</div>
+          <div>
+             <!-- Use an ng-src tag to avoid 404 error. Once angular is up and running, it will be downloaded. 
+             With the src, the browser starts to download the image before angular comes in and replaces the binding expression -->
+              <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+          </div>
+      </div>
+    </body>
+</html>

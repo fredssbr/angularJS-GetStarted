@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="gitHubViewer">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+        <script src="../angular.min.js"></script>
+        <script src="../angular-route.min.js"></script>
+        <!-- The service must be loaded after the script because the module is defined in the app.js file -->
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="MainController.js"></script>
+        <script type="text/javascript" src="UserController.js"></script>
+        <script type="text/javascript" src="RepoController.js"></script>
+        <script type="text/javascript" src="github.js"></script>
+    </head>
+    
+    <body>
+        <h1>GitHub Viewer</h1>
+        <div ng-view></div>
+    </body>
+    
+</html>

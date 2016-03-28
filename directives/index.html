@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="helloApp">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
+        <script src="../angular.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>        
+    </head>
+    <body ng-controller="MainController">
+      <h1>{{message}}</h1>
+      <form name="searchUser" ng-submit="search(username)">
+          <input type="search" required placeholder="User name to find" ng-model="username"/>
+          <input type="submit" value="Search"/>          
+      </form>
+      <p ng-show="error" class="bg-danger">{{error}}</p>
+      <!--Again, when you use single quotes in an ng directive, you are telling angular not to validate it against the scope, i.e. look for a 
+      variable in the scope. You are telling angular to just get the literal string and use THAT value, simple like that. -->
+      <div ng-include="'userdetails.html'" ng-show="user"></div>
+    </body>
+</html>
